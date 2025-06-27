@@ -28,6 +28,9 @@ public class AutorEntity {
     @Column(length = 50, nullable = false)
     private String nacionalidade;
 
-    @OneToMany(mappedBy = "idAutor")
+    @OneToMany(mappedBy = "idAutor",
+            cascade = CascadeType.ALL //,
+            //fetch = FetchType.LAZY
+            )
     private List<LivroEntity> livro;
 }

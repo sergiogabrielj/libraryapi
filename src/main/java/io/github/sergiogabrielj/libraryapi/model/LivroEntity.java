@@ -37,7 +37,10 @@ public class LivroEntity {
     @Column(precision = 18, scale = 2)
     private BigDecimal preco;
 
-    @ManyToOne
+    @ManyToOne(
+            //cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY //Utilizar com @Transactional
+    )
     @JoinColumn(name = "id_autor")
     private AutorEntity idAutor;
 }
